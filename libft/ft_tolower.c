@@ -1,14 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ra.c                                               :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 15:05:32 by carbon-m          #+#    #+#             */
-/*   Updated: 2025/02/11 16:57:22 by carbon-m         ###   ########.fr       */
+/*   Created: 2024/09/17 19:20:25 by carbon-m          #+#    #+#             */
+/*   Updated: 2024/09/27 18:43:50 by carbon-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+int	ft_tolower(int c)
+{
+	if (c >= 'A' && c <= 'Z')
+		c = c + 32;
+	return (c);
+}
+/* 
+#include <stdio.h>
+#include <ctype.h>
 
+int	main(void)
+{
+	int c;
+	c = 100;
+	printf("%d\n",tolower(c));
+	printf("%d\n",ft_tolower(c));
+	return (0);
+} */

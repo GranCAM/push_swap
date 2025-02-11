@@ -1,14 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ra.c                                               :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 15:05:32 by carbon-m          #+#    #+#             */
-/*   Updated: 2025/02/11 16:57:22 by carbon-m         ###   ########.fr       */
+/*   Created: 2024/10/03 12:00:13 by carbon-m          #+#    #+#             */
+/*   Updated: 2024/10/03 17:50:20 by carbon-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
+{
+	t_list	*l;
+
+	if (!lst)
+		return ;
+	l = lst;
+	del(lst->content);
+	lst = lst->next;
+	free (l);
+}

@@ -1,24 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/07 19:52:26 by carbon            #+#    #+#             */
-/*   Updated: 2025/02/11 16:06:32 by carbon-m         ###   ########.fr       */
+/*   Created: 2024/09/17 19:38:35 by carbon-m          #+#    #+#             */
+/*   Updated: 2024/10/21 17:45:16 by carbon-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int main(int argc, char **argv)
+char	*ft_strchr(const char *s, int c)
 {
-    char	**splitted;
+	int		i;
+	char	cast;
 
-	splitted = parse_input(argc, argv);
-	if (!check_args(splitted))
-		exit (1);
-	ft_putstr_fd("benne", 1);
+	cast = (char) c;
+	i = 0;
+	if (cast == 0)
+		return ((char *) &s[ft_strlen((char *)s)]);
+	while (s[i])
+	{
+		if (s[i] == cast)
+			return ((char *) &s[i]);
+		++i;
+	}
 	return (0);
 }
+/* 
+int	main(void)
+{
+	const char s[100] = "Esta casa es una ruina";
+	int	c = '\n';
+	printf("%s\n",strchr(s,c));
+	printf("%s\n",ft_strchr(s,c));
+	return (0);
+} */

@@ -1,14 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ra.c                                               :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 15:05:32 by carbon-m          #+#    #+#             */
-/*   Updated: 2025/02/11 16:57:22 by carbon-m         ###   ########.fr       */
+/*   Created: 2024/10/03 11:56:30 by carbon-m          #+#    #+#             */
+/*   Updated: 2024/10/07 17:16:24 by carbon-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*new;
+
+	new = malloc (sizeof(t_list));
+	if (!new)
+		return (NULL);
+	new->content = content;
+	new->next = NULL;
+	return (new);
+}
