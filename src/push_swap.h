@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:05:02 by carbon-m          #+#    #+#             */
-/*   Updated: 2025/02/13 20:31:06 by carbon-m         ###   ########.fr       */
+/*   Updated: 2025/02/20 11:20:35 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,7 @@ void	pa(t_node list_a, t_node list_b);
 void	pb(t_node list_a, t_node list_b);
 char	**parse_input(int argc, char **argv);
 int		check_args(char **argv);
+int		*to_ints(char **splitted);
+int	check_dups(int *parsed);
 
 #endif

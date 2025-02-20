@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 14:39:05 by carbon-m          #+#    #+#             */
-/*   Updated: 2025/02/18 12:49:14 by carbon-m         ###   ########.fr       */
+/*   Updated: 2025/02/20 11:22:17 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,37 +21,85 @@ char	**parse_input(int argc, char **argv)
 		exit(1);
 	if (argc == 2)
 		return (splitted = ft_split(argv[1], ' '), splitted);
+	splitted = ft_calloc(sizeof(char *), argc);
 	i = 0;
 	while (argv[++i])
-	splitted = ft_calloc(sizeof(char *), i);
+		splitted[i - 1] = ft_strdup(argv[i]);
+	splitted[i - 1] = 0;
 	i = 0;
-	while (argv[++i])
-	{
-		printf("%s",argv[i]);
-		splitted[i] = ft_strdup(argv[i]);
-	}
-	splitted[i + 1] = ft_calloc(1, 1);
+/* 	printf("i = %d argc = %d ahora splitted:\n", i, argc);
+	while (i < argc - 1)
+		{printf("%s\n",splitted[i]);
+		++i;} */
 	return (splitted);
 }
 
-int	check_args(char **argv)
+int	check_args(char **splitted)
 {
 	int		i;
 	int		j;
 
 	i = -1;
-	while (argv[++i])
+	while (splitted[++i])
 	{
 		j = -1;
-		while(argv[i][++j])
+		while(splitted[i][++j])
 		{
-			printf("%c", argv[i][j]);
-			if ((!(ft_isdigit(argv[i][j])) && (argv[i][j] != '-' 
-			&& argv[i][j] != '+'))
-			|| (argv[i][j] == '-' && argv[i][j + 1] == 0)
-			|| (argv[i][j] == '+' && argv[i][j + 1] == 0))
+			if ((!(ft_isdigit(splitted[i][j])) && (splitted[i][j] != '-' 
+			&& splitted[i][j] != '+'))
+			|| (splitted[i][j] == '-' && !(ft_isdigit(splitted[i][j + 1])))
+			|| (splitted[i][j] == '+' && !(ft_isdigit(splitted[i][j + 1]))))
 				return(ft_putstr_fd("Error\n", 1), 0);
 		}
+	}
+	return (1);
+}
+
+int	*to_ints(char **splitted)
+{
+	int		i;
+	int		j;
+	int		*parsed;
+	long	num;
+
+	i = -1;
+	while (splitted[++i])
+	parsed = ft_calloc(sizeof(int *), i);
+	j = 0;
+	while (j < i)
+	{
+		num = ft_atol(splitted[j]);
+		if (num > 2147483647 || num < -2147483648)
+		{
+			ft_putstr_fd("Error\n", 1);
+			exit (1);
+		}
+		parsed[j] = ft_atoi(splitted[j]);
+		++j;
+	}
+	return (parsed);
+}
+
+int	check_dups(int *parsed)
+{
+	int	i;
+	int	j;
+	int	args;
+
+	i = 0;
+	while (parsed[i++])
+		++args;
+	i = 0;
+	while (i <= args)
+	{
+		j = i + 1;
+		while (j <= args)
+		{
+			if (parsed[i] == parsed[j])
+				return (ft_putstr_fd("Error\n", 1), 0);
+			j++;
+		}
+		i++;
 	}
 	return (1);
 }
