@@ -6,7 +6,7 @@
 /*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:05:02 by carbon-m          #+#    #+#             */
-/*   Updated: 2025/02/20 11:20:35 by carbon           ###   ########.fr       */
+/*   Updated: 2025/02/22 19:14:34 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,32 @@
 # include <string.h>
 # include "../libft/libft.h"
 
-typedef struct s_node
+typedef struct s_stack
 {
-	void			*content;
-	int				pos;
-	struct p_list	*next;
-}	t_node;
+	struct s_stack	*head;
+	struct s_stack	*next;
+	int				num;
+	int				index;
+	int				ssize;
+}	t_stack;
 
-void	ra(t_node list_a);
-void	rb(t_node list_b);
-void	rr(t_node list_a, t_node list_b);
-void	sa(t_node list_a);
-void	sb(t_node list_b);
-void	ss(t_node list_a, t_node list_b);
-void	rra(t_node list_a);
-void	rrb(t_node list_b);
-void	rrr(t_node list_a, t_node list_b);
-void	pa(t_node list_a, t_node list_b);
-void	pb(t_node list_a, t_node list_b);
+void	ra(t_stack stack_a);
+void	rb(t_stack stack_b);
+void	rr(t_stack stack_a, t_stack stack_b);
+void	sa(t_stack stack_a);
+void	sb(t_stack stack_b);
+void	ss(t_stack stack_a, t_stack stack_b);
+void	rra(t_stack stack_a);
+void	rrb(t_stack stack_b);
+void	rrr(t_stack stack_a, t_stack stack_b);
+void	pa(t_stack *stack_a, t_stack *stack_b);
+void	pb(t_stack *stack_a, t_stack *stack_b);
 char	**parse_input(int argc, char **argv);
-int		check_args(char **argv);
+void	check_args(char **argv);
 int		*to_ints(char **splitted);
-int	check_dups(int *parsed);
+void	check_dups(int *parsed);
+void	build_stacks(t_stack *stack_a, t_stack *stack_b, int *parsed);
+void	fill_stack(t_stack *stack, int value);
+void	get_index(t_stack *stack_a, int *parsed);
 
 #endif

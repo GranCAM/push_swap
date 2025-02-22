@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 14:39:05 by carbon-m          #+#    #+#             */
-/*   Updated: 2025/02/20 11:22:17 by carbon           ###   ########.fr       */
+/*   Updated: 2025/02/21 19:25:22 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,10 @@ char	**parse_input(int argc, char **argv)
 		splitted[i - 1] = ft_strdup(argv[i]);
 	splitted[i - 1] = 0;
 	i = 0;
-/* 	printf("i = %d argc = %d ahora splitted:\n", i, argc);
-	while (i < argc - 1)
-		{printf("%s\n",splitted[i]);
-		++i;} */
 	return (splitted);
 }
 
-int	check_args(char **splitted)
+void	check_args(char **splitted)
 {
 	int		i;
 	int		j;
@@ -49,10 +45,12 @@ int	check_args(char **splitted)
 			&& splitted[i][j] != '+'))
 			|| (splitted[i][j] == '-' && !(ft_isdigit(splitted[i][j + 1])))
 			|| (splitted[i][j] == '+' && !(ft_isdigit(splitted[i][j + 1]))))
-				return(ft_putstr_fd("Error\n", 1), 0);
+			{
+				ft_putstr_fd("Error\n", 1);
+				exit (1);
+			}
 		}
 	}
-	return (1);
 }
 
 int	*to_ints(char **splitted)
@@ -64,7 +62,7 @@ int	*to_ints(char **splitted)
 
 	i = -1;
 	while (splitted[++i])
-	parsed = ft_calloc(sizeof(int *), i);
+	parsed = ft_calloc(sizeof(int), i);
 	j = 0;
 	while (j < i)
 	{
@@ -77,10 +75,11 @@ int	*to_ints(char **splitted)
 		parsed[j] = ft_atoi(splitted[j]);
 		++j;
 	}
+	parsed[j] = 0;
 	return (parsed);
 }
 
-int	check_dups(int *parsed)
+void	check_dups(int *parsed)
 {
 	int	i;
 	int	j;
@@ -96,10 +95,12 @@ int	check_dups(int *parsed)
 		while (j <= args)
 		{
 			if (parsed[i] == parsed[j])
-				return (ft_putstr_fd("Error\n", 1), 0);
+			{
+				ft_putstr_fd("Error\n", 1);
+				exit(1);
+			}
 			j++;
 		}
 		i++;
 	}
-	return (1);
 }
