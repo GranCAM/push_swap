@@ -6,7 +6,7 @@
 /*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 11:11:54 by carbon            #+#    #+#             */
-/*   Updated: 2025/02/22 11:04:21 by carbon           ###   ########.fr       */
+/*   Updated: 2025/02/23 17:05:09 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	build_stacks(t_stack *stack_a, t_stack *stack_b, int *parsed)
 	int		i;
     int     args;
 
-	stack_b->head = NULL;
-	stack_a->head = NULL;
     i = 0;
 	args = 0;
     while(parsed[i])
@@ -44,8 +42,8 @@ void	fill_stack(t_stack *stack, int value)
 	tmp = (t_stack *)malloc(sizeof(t_stack));
 	if (!tmp)
 		return ;
-    tmp->next = stack->head;
-    stack->head = tmp;
+    tmp->next = stack;
+    stack = tmp;
 	tmp->num = value;
 	tmp->index = 0;
 }
@@ -58,7 +56,7 @@ void	get_index(t_stack *stack_a, int *parsed)
     tmp = (t_stack *)malloc(sizeof(t_stack));
 	if (!tmp)
 		return ;
-    tmp->next = stack_a->head;
+    tmp->next = stack_a;
     while (tmp)
 	{
         i = 0;

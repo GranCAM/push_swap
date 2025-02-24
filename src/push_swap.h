@@ -6,7 +6,7 @@
 /*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:05:02 by carbon-m          #+#    #+#             */
-/*   Updated: 2025/02/22 19:14:34 by carbon           ###   ########.fr       */
+/*   Updated: 2025/02/23 15:22:29 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 
 typedef struct s_stack
 {
-	struct s_stack	*head;
 	struct s_stack	*next;
 	int				num;
 	int				index;

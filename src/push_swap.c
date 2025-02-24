@@ -6,7 +6,7 @@
 /*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 19:52:26 by carbon            #+#    #+#             */
-/*   Updated: 2025/02/22 19:46:18 by carbon           ###   ########.fr       */
+/*   Updated: 2025/02/23 17:38:57 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ int main(int argc, char **argv)
 	free (parsed);
 	t_stack *temp;
 	temp = malloc(sizeof(t_stack));
-	temp = stack_a->head;
+	temp = stack_a;
 	t_stack *temp2;
 	temp2 = malloc(sizeof(t_stack));
-	temp2 = stack_b->head;
+	temp2 = stack_b;
 	printf("%d top a %d top b\n",temp->num, temp2->num);
 	pb(stack_a,stack_b);
 	return (0);
