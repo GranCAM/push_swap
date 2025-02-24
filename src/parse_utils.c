@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 14:39:05 by carbon-m          #+#    #+#             */
-/*   Updated: 2025/02/21 19:25:22 by carbon           ###   ########.fr       */
+/*   Updated: 2025/02/24 15:29:00 by carbon-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,10 @@ int	*to_ints(char **splitted)
 	int		*parsed;
 	long	num;
 
-	i = -1;
-	while (splitted[++i])
-	parsed = ft_calloc(sizeof(int), i);
+	i = 0;
+	while (splitted[i])
+		++i;
+	parsed = ft_calloc(sizeof(int), i + 1);
 	j = 0;
 	while (j < i)
 	{
@@ -86,6 +87,7 @@ void	check_dups(int *parsed)
 	int	args;
 
 	i = 0;
+	args = 0;
 	while (parsed[i++])
 		++args;
 	i = 0;

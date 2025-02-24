@@ -3,19 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 11:11:54 by carbon            #+#    #+#             */
-/*   Updated: 2025/02/23 17:05:09 by carbon           ###   ########.fr       */
+/*   Updated: 2025/02/24 16:43:33 by carbon-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	build_stacks(t_stack *stack_a, t_stack *stack_b, int *parsed)
+void	build_stacks(t_stack **stack_a, int *parsed)
 {
 	int		i;
     int     args;
+	t_stack	*stack;
 
     i = 0;
 	args = 0;
@@ -24,45 +25,67 @@ void	build_stacks(t_stack *stack_a, t_stack *stack_b, int *parsed)
         ++i;
         ++args;
     }
-	stack_a->ssize = args;
-	stack_b->ssize = 0;
-	while (i >= 0)
+	while (i > 0)
 	{
-		fill_stack(stack_a, parsed[i]);
-		i--;
+		stack = stack_new(parsed[i - 1]);
+		add_front(stack_a, stack);
+		--i;
 	}
 	ft_bubble_sort(parsed);
-	get_index(stack_a, parsed);
+	get_index(*stack_a, parsed);
 }
 
-void	fill_stack(t_stack *stack, int value)
+/* void	fill_stack(t_stack *stack, int *parsed, int args)
 {
-	t_stack	*tmp;
+	int		i;
+	t_stack	*temp;
 
-	tmp = (t_stack *)malloc(sizeof(t_stack));
-	if (!tmp)
+	i = 0;
+	temp = (t_stack *)malloc(sizeof(t_stack));
+	if (!temp)
 		return ;
-    tmp->next = stack;
-    stack = tmp;
-	tmp->num = value;
-	tmp->index = 0;
-}
+	temp = stack;
+	temp->next = NULL;
+	temp->ssize = args;
+	while (i < args)
+	{
+		temp->num = parsed[i];
+		temp->index = 0;
+		temp = temp->next;
+		++i;
+	}
+} */
+
+/* void	push_node(t_stack *stack, int value)
+{
+	t_stack	*temp;
+
+	temp = (t_stack *)malloc(sizeof(t_stack));
+	if (!temp)
+		return ;
+    temp->next = stack;
+    stack = temp;
+	temp->num = value;
+	temp->index = 0;
+} */
+
+
 
 void	get_index(t_stack *stack_a, int *parsed)
 {
     int	    i;
-    t_stack	*tmp;
+    t_stack	*temp;
 
-    tmp = (t_stack *)malloc(sizeof(t_stack));
-	if (!tmp)
+    temp = (t_stack *)malloc(sizeof(t_stack));
+	if (!temp)
 		return ;
-    tmp->next = stack_a;
-    while (tmp)
+    temp = stack_a;
+    while (temp)
 	{
         i = 0;
-        while (parsed[i] != tmp->num)
+        while (parsed[i] != temp->num)
             i++;
-        tmp->index = i;
-        tmp = tmp->next;
+        temp->index = i;
+        temp = temp->next;
     }
 }
