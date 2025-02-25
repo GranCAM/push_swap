@@ -6,7 +6,7 @@
 /*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 19:52:26 by carbon            #+#    #+#             */
-/*   Updated: 2025/02/24 17:26:44 by carbon-m         ###   ########.fr       */
+/*   Updated: 2025/02/25 12:13:39 by carbon-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,7 @@ int main(int argc, char **argv)
 	printf("rb %d top a\n%d top b\n",stack_a->num, stack_b->num);
 	rb(&stack_b);
 	printf("rb %d top a\n%d top b\n",stack_a->num, stack_b->num);
+	stack_del(&stack_a);
+	stack_del(&stack_b);
 	return (0);
 }

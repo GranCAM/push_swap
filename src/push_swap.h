@@ -6,7 +6,7 @@
 /*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:05:02 by carbon-m          #+#    #+#             */
-/*   Updated: 2025/02/24 17:17:09 by carbon-m         ###   ########.fr       */
+/*   Updated: 2025/02/25 12:13:00 by carbon-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,7 @@ void	add_front(t_stack **stack, t_stack *new);
 void	add_back(t_stack **stack, t_stack *new);
 t_stack	*stacklast(t_stack *stack);
 int		stacksize(t_stack *stack);
+void	stack_del(t_stack **stack);
+void	del_node(t_stack *stack);
 
 #endif
