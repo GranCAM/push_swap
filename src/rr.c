@@ -6,7 +6,14 @@
 /*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 19:51:51 by carbon            #+#    #+#             */
-/*   Updated: 2025/02/07 19:51:52 by carbon           ###   ########.fr       */
+/*   Updated: 2025/02/25 19:22:53 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
+void	rr(t_stack **stack_a, t_stack **stack_b)
+{
+    ra(stack_a);
+    rb(stack_b);
+}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 11:11:54 by carbon            #+#    #+#             */
-/*   Updated: 2025/02/25 12:15:05 by carbon-m         ###   ########.fr       */
+/*   Updated: 2025/02/26 21:49:12 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,37 +71,3 @@ void	stack_del(t_stack **stack)
 		*stack = temp;
 	}
 }
-
-/* void	fill_stack(t_stack *stack, int *parsed, int args)
-{
-	int		i;
-	t_stack	*temp;
-
-	i = 0;
-	temp = (t_stack *)malloc(sizeof(t_stack));
-	if (!temp)
-		return ;
-	temp = stack;
-	temp->next = NULL;
-	temp->ssize = args;
-	while (i < args)
-	{
-		temp->num = parsed[i];
-		temp->index = 0;
-		temp = temp->next;
-		++i;
-	}
-} */
-
-/* void	push_node(t_stack *stack, int value)
-{
-	t_stack	*temp;
-
-	temp = (t_stack *)malloc(sizeof(t_stack));
-	if (!temp)
-		return ;
-    temp->next = stack;
-    stack = temp;
-	temp->num = value;
-	temp->index = 0;
-} */
