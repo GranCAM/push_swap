@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 16:28:22 by carbon            #+#    #+#             */
-/*   Updated: 2025/03/02 20:15:48 by carbon           ###   ########.fr       */
+/*   Updated: 2025/03/03 16:29:21 by carbon-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,15 @@ void	push_to_b(t_stack **stack_a, t_stack **stack_b, int a_size, int b_size)
 	range = get_sqrt(a_size) * 133 / 100;
 	while (a_size > 0)
 	{
-	if ((*stack_a)->index <= b_size)
+		if ((*stack_a)->index <= b_size)
 		{
-		pb(stack_a, stack_b);
+			pb(stack_a, stack_b);
 			a_size--;
 			b_size++;
 		}
 		else if ((*stack_a)->index <= b_size + range)
 		{
-		pb(stack_a, stack_b);
+			pb(stack_a, stack_b);
 			a_size--;
 			b_size++;
 			if (!((*stack_a)->index <= b_size + range) && b_size > 1)
@@ -54,16 +54,24 @@ void	push_to_b(t_stack **stack_a, t_stack **stack_b, int a_size, int b_size)
 
 void	push_to_a(t_stack **stack_a, t_stack **stack_b, int a_size, int b_size)
 {
+	int	i;
+
+	i = 0;
 	while (b_size > 0)
 	{
-		while ((*stack_b)->index != b_size - 1)
+		i = max_node_pos(stack_b, b_size);
+		if (i >= (b_size / 2))
 		{
-			if (ft_lstpos(*stack_b, b_size - 1) <= b_size / 2)
-				rb(stack_b);
-			else
+			while((*stack_b)->index != b_size - 1)
 				rrb(stack_b);
 		}
+		else
+		{
+			while((*stack_b)->index != b_size - 1)
+				rb(stack_b);
+		}
 		pa(stack_a, stack_b);
+		i = 0;
 		a_size++;
 		b_size--;
 	}

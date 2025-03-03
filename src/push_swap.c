@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 19:52:26 by carbon            #+#    #+#             */
-/*   Updated: 2025/02/28 20:47:22 by carbon           ###   ########.fr       */
+/*   Updated: 2025/03/03 16:36:44 by carbon-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 	check_dups(parsed);
 	build_stacks(&stack_a, parsed);
 	free (parsed);
-	int i = 0;
+	/* int i = 0;
 	int size = stacksize(stack_a);
 	t_stack *temp = stack_a;
 	while (i < size)
@@ -36,8 +36,17 @@ int main(int argc, char **argv)
 		printf("num: %d, index: %d\n",temp->num,temp->index);
 		temp = temp->next;
 		++i;
-	}
+	} */
 	ksort(&stack_a, &stack_b);
+/* 	int i = 0;
+	int size = stacksize(stack_a);
+	t_stack *temp = stack_a;
+	while (i < size)
+	{
+		printf("num: %d, index: %d\n",temp->num,temp->index);
+		temp = temp->next;
+		++i;
+	} */
 	stack_del(&stack_a);
 	stack_del(&stack_b);
 	return (0);
