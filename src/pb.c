@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 19:52:17 by carbon            #+#    #+#             */
-/*   Updated: 2025/02/25 11:54:41 by carbon-m         ###   ########.fr       */
+/*   Updated: 2025/03/01 20:41:58 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,5 @@ void	pb(t_stack **stack_a, t_stack **stack_b)
     *stack_a = (*stack_a)->next;
     temp->next = *stack_b;
     *stack_b = temp;
+    ft_putendl_fd("pb", 1);
 }

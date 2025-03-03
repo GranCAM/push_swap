@@ -6,7 +6,7 @@
 /*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 19:52:13 by carbon            #+#    #+#             */
-/*   Updated: 2025/02/26 20:04:10 by carbon           ###   ########.fr       */
+/*   Updated: 2025/02/28 10:34:35 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,5 @@ void	ss(t_stack **stack_a, t_stack **stack_b)
 {
     sa(stack_a);
     sb(stack_b);
+    ft_putendl_fd("ss", 1);
 }

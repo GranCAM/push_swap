@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 19:51:45 by carbon            #+#    #+#             */
-/*   Updated: 2025/02/24 17:06:13 by carbon-m         ###   ########.fr       */
+/*   Updated: 2025/02/27 20:51:09 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ void	rb(t_stack **stack_b)
 	while (last->next)
 		last = last->next;
 	last->next = temp;
+	ft_putendl_fd("rb", 1);
 }

@@ -6,7 +6,7 @@
 /*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 19:51:57 by carbon            #+#    #+#             */
-/*   Updated: 2025/02/26 19:52:23 by carbon           ###   ########.fr       */
+/*   Updated: 2025/02/28 10:33:55 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,5 @@ void	rrb(t_stack **stack_b)
     temp->next = NULL;
     last = stacklast(*stack_b);
     last->next = temp;
+    ft_putendl_fd("rrb", 1);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ra.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:05:32 by carbon-m          #+#    #+#             */
-/*   Updated: 2025/02/24 17:04:13 by carbon-m         ###   ########.fr       */
+/*   Updated: 2025/03/01 18:21:28 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ void	ra(t_stack **stack_a)
 	while (last->next)
 		last = last->next;
 	last->next = temp;
+	ft_putendl_fd("ra", 1);
 }

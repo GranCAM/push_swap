@@ -6,7 +6,7 @@ CFLAGS = -Werror -Wall -Wextra -g3
 
 RM = rm -rf
 
-SRCS = 	src/push_swap.c src/parse_utils.c src/stack_utils.c src/stack_utils2.c\
+SRCS = 	src/push_swap.c src/parse_utils.c src/stack_utils.c src/stack_utils2.c src/sort_utils.c\
 		src/pa.c src/pb.c src/ra.c src/rb.c src/rr.c \
 		src/rra.c src/rrb.c src/rrr.c \
 		src/sa.c src/sb.c src/ss.c \

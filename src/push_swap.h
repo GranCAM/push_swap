@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:05:02 by carbon-m          #+#    #+#             */
-/*   Updated: 2025/02/25 12:13:00 by carbon-m         ###   ########.fr       */
+/*   Updated: 2025/03/02 18:29:08 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,10 @@ t_stack	*stacklast(t_stack *stack);
 int		stacksize(t_stack *stack);
 void	stack_del(t_stack **stack);
 void	del_node(t_stack *stack);
+void	ksort(t_stack **list_a, t_stack **list_b);
+void	push_to_a(t_stack **list_a, t_stack **list_b, int a_size, int b_size);
+void	push_to_b(t_stack **list_a, t_stack **list_b, int a_size, int b_size);
+int		get_sqrt(int nbr);
+int		ft_lstpos(t_stack *head, int position);	
 
 #endif
