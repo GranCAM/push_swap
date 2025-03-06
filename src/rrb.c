@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rrb.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 19:51:57 by carbon            #+#    #+#             */
-/*   Updated: 2025/03/03 16:28:31 by carbon-m         ###   ########.fr       */
+/*   Updated: 2025/03/04 19:09:58 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ void	rrb(t_stack **stack_b)
     temp2->next = NULL;
     temp->next = *stack_b;
     *stack_b = temp;
-    ft_putendl_fd("rrb", 1);
+    write(1, "rrb\n", 4);
 }

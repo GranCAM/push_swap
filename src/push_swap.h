@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:05:02 by carbon-m          #+#    #+#             */
-/*   Updated: 2025/03/03 16:18:21 by carbon-m         ###   ########.fr       */
+/*   Updated: 2025/03/05 18:27:49 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void	pb(t_stack **stack_a, t_stack **stack_b);
 char	**parse_input(int argc, char **argv);
 void	check_args(char **argv);
 int		*to_ints(char **splitted);
-void	check_dups(int *parsed);
-void	build_stacks(t_stack **stack_a, int *parsed);
+void	check_dups(int *parsed, int args);
+void	build_stacks(t_stack **stack_a, int *parsed, int args);
 void	fill_stack(t_stack *stack, int *parsed, int arg);
 void	get_index(t_stack *stack_a, int *parsed);
 t_stack	*stack_new(int value);

@@ -3,35 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 11:11:54 by carbon            #+#    #+#             */
-/*   Updated: 2025/03/03 16:18:15 by carbon-m         ###   ########.fr       */
+/*   Updated: 2025/03/05 19:20:11 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	build_stacks(t_stack **stack_a, int *parsed)
+void	build_stacks(t_stack **stack_a, int *parsed, int args)
 {
-	int		i;
-    int     args;
 	t_stack	*stack;
+	int		i;
 
-    i = 0;
-	args = 0;
-    while(parsed[i])
-    {
-        ++i;
-        ++args;
-    }
+	i = args;
 	while (i > 0)
 	{
 		stack = stack_new(parsed[i - 1]);
 		add_front(stack_a, stack);
 		--i;
 	}
-	ft_bubble_sort(parsed);
+	ft_bubble_sort(parsed, args);
 	get_index(*stack_a, parsed);
 }
 

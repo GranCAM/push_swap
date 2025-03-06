@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 19:52:26 by carbon            #+#    #+#             */
-/*   Updated: 2025/03/03 16:36:44 by carbon-m         ###   ########.fr       */
+/*   Updated: 2025/03/05 19:20:35 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int main(int argc, char **argv)
 {
     char	**splitted;
 	int		*parsed;
+	int		args;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
@@ -23,12 +24,16 @@ int main(int argc, char **argv)
 	stack_b = NULL;
 	splitted = parse_input(argc, argv);
 	check_args(splitted);
+	if (argc == 2)
+		args = ft_word_count(argv[1], ' ');
+	else
+		args = argc - 1;
 	parsed = to_ints(splitted);
 	ft_frematrix(splitted);
-	check_dups(parsed);
-	build_stacks(&stack_a, parsed);
+	check_dups(parsed, args);
+	build_stacks(&stack_a, parsed, args);
 	free (parsed);
-	/* int i = 0;
+/* 	int i = 0;
 	int size = stacksize(stack_a);
 	t_stack *temp = stack_a;
 	while (i < size)
@@ -38,9 +43,9 @@ int main(int argc, char **argv)
 		++i;
 	} */
 	ksort(&stack_a, &stack_b);
-/* 	int i = 0;
-	int size = stacksize(stack_a);
-	t_stack *temp = stack_a;
+/* 	i = 0;
+	size = stacksize(stack_a);
+	temp = stack_a;
 	while (i < size)
 	{
 		printf("num: %d, index: %d\n",temp->num,temp->index);

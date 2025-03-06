@@ -6,7 +6,7 @@
 /*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 14:39:05 by carbon-m          #+#    #+#             */
-/*   Updated: 2025/02/25 18:08:38 by carbon           ###   ########.fr       */
+/*   Updated: 2025/03/05 18:35:05 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,21 +80,16 @@ int	*to_ints(char **splitted)
 	return (parsed);
 }
 
-void	check_dups(int *parsed)
+void	check_dups(int *parsed, int args)
 {
 	int	i;
 	int	j;
-	int	args;
 
 	i = 0;
-	args = 0;
-	while (parsed[i++])
-		++args;
-	i = 0;
-	while (i <= args)
+	while (i <= args - 1)
 	{
 		j = i + 1;
-		while (j <= args)
+		while (j <= args - 1)
 		{
 			if (parsed[i] == parsed[j])
 			{

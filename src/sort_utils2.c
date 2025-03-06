@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rb.c                                               :+:      :+:    :+:   */
+/*   sort_utils2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/07 19:51:45 by carbon            #+#    #+#             */
-/*   Updated: 2025/03/04 18:42:33 by carbon           ###   ########.fr       */
+/*   Created: 2025/03/05 20:29:40 by carbon            #+#    #+#             */
+/*   Updated: 2025/03/06 14:45:42 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rb(t_stack **stack_b)
+int	check_ordered(t_stack **stack_a, int args)
 {
+	t_stack *next;
     t_stack *temp;
-    t_stack *last;
+	int	args;
 
-    temp = *stack_b;
-    *stack_b = temp->next;
-    temp->next = NULL;
-    last = stacklast(*stack_b);
-    last->next = temp;
-    write(1, "rb\n", 3);
+	temp = (*stack_a);
+	next = (*stack_a)->next;
+    while (temp->next)
+    {
+		next = next->next;
+		if ((*stack_a)->index > next) 
+            return (0);
+		temp = temp->next;
+    }
+}
+
+void	three_stack(t_stack **stack_a, t_stack **stack_b)
+{
+	if ()
 }

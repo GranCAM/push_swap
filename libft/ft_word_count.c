@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rb.c                                               :+:      :+:    :+:   */
+/*   ft_word_count.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/07 19:51:45 by carbon            #+#    #+#             */
-/*   Updated: 2025/03/04 18:42:33 by carbon           ###   ########.fr       */
+/*   Created: 2025/03/05 18:13:22 by carbon            #+#    #+#             */
+/*   Updated: 2025/03/05 18:20:33 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	rb(t_stack **stack_b)
+int	ft_word_count(char const *s, char c)
 {
-    t_stack *temp;
-    t_stack *last;
+	size_t	count_arr;
+	int		i;
 
-    temp = *stack_b;
-    *stack_b = temp->next;
-    temp->next = NULL;
-    last = stacklast(*stack_b);
-    last->next = temp;
-    write(1, "rb\n", 3);
+	count_arr = 0;
+	i = 0;
+	while (s[i] != 0)
+	{
+		if (s[i] != c)
+		{
+			while (s[i] != c && s[i] != 0)
+				i++;
+			count_arr++;
+		}
+		if (s[i] == '\0')
+			break ;
+		i++;
+	}
+	return (count_arr);
 }
