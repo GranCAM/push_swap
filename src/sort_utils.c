@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 16:28:22 by carbon            #+#    #+#             */
-/*   Updated: 2025/03/04 19:30:12 by carbon           ###   ########.fr       */
+/*   Updated: 2025/03/07 11:46:06 by carbon-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,10 +84,19 @@ void	ksort(t_stack **stack_a, t_stack **stack_b)
 
 	a_size = stacksize(*stack_a);
 	b_size = 0;
-	push_to_b(stack_a, stack_b, a_size, b_size);
-	b_size = stacksize(*stack_b);
-	a_size = 0;
-	push_to_a(stack_a, stack_b, a_size, b_size);
+	if (a_size == 3)
+		three_num(stack_a, a_size);
+	if (a_size == 4)
+		four_num(stack_a, stack_b, a_size);
+	else if (a_size == 5)
+		five_num(stack_a, stack_b, a_size);
+	else
+	{
+		push_to_b(stack_a, stack_b, a_size, b_size);
+		b_size = stacksize(*stack_b);
+		a_size = 0;
+		push_to_a(stack_a, stack_b, a_size, b_size);
+	}
 }
 
 int	ft_lstpos(t_stack *head, int position)

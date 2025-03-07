@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 11:11:54 by carbon            #+#    #+#             */
-/*   Updated: 2025/03/06 18:42:58 by carbon           ###   ########.fr       */
+/*   Updated: 2025/03/07 11:40:33 by carbon-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	max_node_pos(t_stack **stack_b, int b_size)
 
 	i = 0;
 	temp = *stack_b;
-	while(temp->index != b_size -1)
+	while(temp->index != b_size -1 && temp->next)
 	{
 		temp = temp->next;
 		++i;

@@ -6,7 +6,7 @@
 /*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 11:50:28 by carbon-m          #+#    #+#             */
-/*   Updated: 2025/02/11 12:03:36 by carbon-m         ###   ########.fr       */
+/*   Updated: 2025/03/07 12:18:46 by carbon-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ long	ft_atol(char *nptr)
 		num = nptr[i] - 48 + num * 10;
 		++i;
 	}
-	return ( num * sign);
+	return (num * sign);
 }

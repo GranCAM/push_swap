@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 14:39:05 by carbon-m          #+#    #+#             */
-/*   Updated: 2025/03/06 19:31:34 by carbon           ###   ########.fr       */
+/*   Updated: 2025/03/07 12:13:30 by carbon-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,18 @@ char	**parse_input(int argc, char **argv)
 	if (argc < 2)
 		exit(1);
 	if (argc == 2)
+	{
+		if (ft_strlen(argv[1]) == 0)
+		{
+			ft_putendl_fd("Error", 1);
+			exit (1);
+		}
 		return (splitted = ft_split(argv[1], ' '), splitted);
+	}
 	splitted = ft_calloc(sizeof(char *), argc);
 	i = 0;
 	while (argv[++i])
-	{
 		splitted[i - 1] = ft_strdup(argv[i]);
-		printf("%s\n", splitted[i - 1]);
-	}
 	splitted[i - 1] = 0;
 	i = 0;
 	return (splitted);
