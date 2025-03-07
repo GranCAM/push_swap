@@ -6,7 +6,7 @@
 /*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 11:11:54 by carbon            #+#    #+#             */
-/*   Updated: 2025/03/05 19:20:11 by carbon           ###   ########.fr       */
+/*   Updated: 2025/03/06 18:42:58 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	get_index(t_stack *stack_a, int *parsed)
 	{
         i = 0;
         while (parsed[i] != stack_a->num)
-            i++;
+			i++;
         stack_a->index = i;
         stack_a = stack_a->next;
 		--size;

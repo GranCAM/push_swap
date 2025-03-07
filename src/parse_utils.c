@@ -6,7 +6,7 @@
 /*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 14:39:05 by carbon-m          #+#    #+#             */
-/*   Updated: 2025/03/05 18:35:05 by carbon           ###   ########.fr       */
+/*   Updated: 2025/03/06 19:31:34 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ char	**parse_input(int argc, char **argv)
 	splitted = ft_calloc(sizeof(char *), argc);
 	i = 0;
 	while (argv[++i])
+	{
 		splitted[i - 1] = ft_strdup(argv[i]);
+		printf("%s\n", splitted[i - 1]);
+	}
 	splitted[i - 1] = 0;
 	i = 0;
 	return (splitted);
