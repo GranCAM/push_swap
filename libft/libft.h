@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:48:04 by carbon-m          #+#    #+#             */
-/*   Updated: 2025/03/05 19:08:55 by carbon           ###   ########.fr       */
+/*   Updated: 2025/03/08 12:48:35 by carbon-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 void	ft_frematrix(char **all);
 char	*ft_strjoin_free(char *s1, char *s2);
 long	ft_atol(char *nptr);
-void 	ft_bubble_sort(int *arr, int args);
+void	ft_bubble_sort(int *arr, int args);
 int		ft_word_count(char const *s, char c);
 
 #endif

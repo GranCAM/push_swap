@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 20:29:40 by carbon            #+#    #+#             */
-/*   Updated: 2025/03/07 18:49:11 by carbon           ###   ########.fr       */
+/*   Updated: 2025/03/08 12:34:45 by carbon-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	check_ordered(int *parsed, int args)
 	i = 1;
 	while (i < args)
 	{
-		if(parsed[i] > parsed[i - 1])
+		if (parsed[i] > parsed[i - 1])
 			++i;
 		else
 			return (0);
@@ -99,7 +99,7 @@ void	five_num(t_stack **stack_a, t_stack **stack_b, int a_size)
 
 void	two_num(t_stack **stack_a)
 {
-	if((*stack_a)->index == 0)
+	if ((*stack_a)->index == 0)
 		return ;
 	else
 		ra (stack_a);

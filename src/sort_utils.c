@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 16:28:22 by carbon            #+#    #+#             */
-/*   Updated: 2025/03/07 13:17:00 by carbon           ###   ########.fr       */
+/*   Updated: 2025/03/08 12:34:26 by carbon-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,12 @@ void	push_to_a(t_stack **stack_a, t_stack **stack_b, int a_size, int b_size)
 		i = max_node_pos(stack_b, b_size);
 		if (i >= (b_size / 2))
 		{
-			while((*stack_b)->index != b_size - 1)
+			while ((*stack_b)->index != b_size - 1)
 				rrb(stack_b);
 		}
 		else
 		{
-			while((*stack_b)->index != b_size - 1)
+			while ((*stack_b)->index != b_size - 1)
 				rb(stack_b);
 		}
 		pa(stack_a, stack_b);
@@ -79,8 +79,8 @@ void	push_to_a(t_stack **stack_a, t_stack **stack_b, int a_size, int b_size)
 
 void	ksort(t_stack **stack_a, t_stack **stack_b)
 {
-	int a_size;
-	int b_size;
+	int	a_size;
+	int	b_size;
 
 	a_size = stacksize(*stack_a);
 	b_size = 0;

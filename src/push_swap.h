@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:05:02 by carbon-m          #+#    #+#             */
-/*   Updated: 2025/03/07 16:18:37 by carbon           ###   ########.fr       */
+/*   Updated: 2025/03/08 19:30:28 by carbon-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	rrb(t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
 void	pa(t_stack **stack_a, t_stack **stack_b);
 void	pb(t_stack **stack_a, t_stack **stack_b);
-char	**parse_input(int argc, char **argv);
+char	**parse_input(char **argv, int args);
 void	check_args(char **argv);
 int		*to_ints(char **splitted);
 void	check_dups(int *parsed, int args);
@@ -63,5 +63,9 @@ void	five_num(t_stack **stack_a, t_stack **stack_b, int a_size);
 int		check_ordered(int *parsed, int args);
 void	check_empty(char **splitted);
 void	two_num(t_stack **stack_a);
+int		count_args(char **splitted, int argc, char **argv);
+char	**split_the_split(char **splitted, int args, int bad_args);
+int		blunt_args(int argc, char **argv);
+char	**parse_input_first(char **argv, int argc);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 19:52:02 by carbon            #+#    #+#             */
-/*   Updated: 2025/03/03 12:23:49 by carbon-m         ###   ########.fr       */
+/*   Updated: 2025/03/08 12:48:12 by carbon-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
-    rra(stack_a);
-    rrb(stack_b);
-    ft_putendl_fd("rrr", 1);
+	rra(stack_a);
+	rrb(stack_b);
+	ft_putendl_fd("rrr", 1);
 }

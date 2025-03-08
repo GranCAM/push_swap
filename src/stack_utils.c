@@ -6,7 +6,7 @@
 /*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 11:11:54 by carbon            #+#    #+#             */
-/*   Updated: 2025/03/07 11:40:33 by carbon-m         ###   ########.fr       */
+/*   Updated: 2025/03/08 12:37:44 by carbon-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,19 @@ void	build_stacks(t_stack **stack_a, int *parsed, int args)
 
 void	get_index(t_stack *stack_a, int *parsed)
 {
-    int	    i;
-	int		size;
+	int	i;
+	int	size;
 
 	size = stacksize(stack_a);
-    while (size >= 1)
+	while (size >= 1)
 	{
-        i = 0;
-        while (parsed[i] != stack_a->num)
+		i = 0;
+		while (parsed[i] != stack_a->num)
 			i++;
-        stack_a->index = i;
-        stack_a = stack_a->next;
+		stack_a->index = i;
+		stack_a = stack_a->next;
 		--size;
-    }
+	}
 }
 
 void	del_node(t_stack *stack)
@@ -72,10 +72,10 @@ int	max_node_pos(t_stack **stack_b, int b_size)
 
 	i = 0;
 	temp = *stack_b;
-	while(temp->index != b_size -1 && temp->next)
+	while (temp->index != b_size -1 && temp->next)
 	{
 		temp = temp->next;
 		++i;
 	}
-	return(i);
+	return (i);
 }
