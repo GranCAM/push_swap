@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:05:02 by carbon-m          #+#    #+#             */
-/*   Updated: 2025/03/07 12:02:30 by carbon-m         ###   ########.fr       */
+/*   Updated: 2025/03/07 16:18:37 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ int		max_node_pos(t_stack **stack_b, int b_size);
 void	three_num(t_stack **stack_a, int a_size);
 void	four_num(t_stack **stack_a, t_stack **stack_b, int a_size);
 void	five_num(t_stack **stack_a, t_stack **stack_b, int a_size);
-int		check_ordered(t_stack **stack_a);
+int		check_ordered(int *parsed, int args);
 void	check_empty(char **splitted);
+void	two_num(t_stack **stack_a);
 
 #endif

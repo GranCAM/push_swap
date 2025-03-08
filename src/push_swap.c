@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 19:52:26 by carbon            #+#    #+#             */
-/*   Updated: 2025/03/07 12:16:52 by carbon-m         ###   ########.fr       */
+/*   Updated: 2025/03/07 19:05:47 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ int main(int argc, char **argv)
 	parsed = to_ints(splitted);
 	ft_frematrix(splitted);
 	check_dups(parsed, args);
+	if (check_ordered(parsed, args) == 1)
+		return(free(parsed), 0);
 	build_stacks(&stack_a, parsed, args);
 	free (parsed);
 	ksort(&stack_a, &stack_b);

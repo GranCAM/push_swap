@@ -6,7 +6,7 @@
 /*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 16:06:24 by carbon-m          #+#    #+#             */
-/*   Updated: 2025/02/28 10:34:18 by carbon           ###   ########.fr       */
+/*   Updated: 2025/03/07 13:19:25 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ void	sa(t_stack **stack_a)
 	(*stack_a)->next = temp->next;
 	temp->next = *stack_a;
 	*stack_a = temp;
-	ft_putendl_fd("sa", 1);
+	write(1, "sa\n", 3);
 }
