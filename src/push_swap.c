@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 19:52:26 by carbon            #+#    #+#             */
-/*   Updated: 2025/03/08 20:01:13 by carbon-m         ###   ########.fr       */
+/*   Updated: 2025/03/09 21:27:32 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,22 @@ int	main(int argc, char **argv)
 		return (free(parsed), 0);
 	build_stacks(&stack_a, parsed, args);
 	free (parsed);
+/* 	t_stack *temp;
+	temp = stack_a;
+	while (temp->next)
+	{
+		printf("num %d| index %d|\n", temp->num, temp->index);
+		temp = temp->next;
+	}
+	printf("num %d| index %d|\n", temp->num, temp->index); */
 	ksort(&stack_a, &stack_b);
+/* 	temp = stack_a;
+	while (temp->next)
+	{
+		printf("num %d| index %d|\n", temp->num, temp->index);
+		temp = temp->next;
+	}
+	printf("num %d| index %d|\n", temp->num, temp->index); */
 	stack_del(&stack_a);
 	stack_del(&stack_b);
 	return (0);
@@ -55,6 +70,7 @@ int	count_args(char **splitted, int argc, char **argv)
 		real_args = real_args + ft_word_count(splitted[i], ' ');
 		++i;
 	}
+/* 	printf("real args : %d\n",real_args); */
 	return (real_args);
 }
 
