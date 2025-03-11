@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 19:52:26 by carbon            #+#    #+#             */
-/*   Updated: 2025/03/09 21:27:32 by carbon           ###   ########.fr       */
+/*   Updated: 2025/03/11 14:45:58 by carbon-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,31 +26,14 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	splitted = parse_input_first(argv, argc);
 	args = count_args(splitted, argc, argv);
-	splitted = parse_input(argv, argc);
+	splitted = parse_input(argv, argc, splitted);
 	check_args(splitted);
-	parsed = to_ints(splitted);
-	ft_frematrix(splitted);
+	parsed = to_ints(splitted, args);
 	check_dups(parsed, args);
 	if (check_ordered(parsed, args) == 1)
 		return (free(parsed), 0);
 	build_stacks(&stack_a, parsed, args);
-	free (parsed);
-/* 	t_stack *temp;
-	temp = stack_a;
-	while (temp->next)
-	{
-		printf("num %d| index %d|\n", temp->num, temp->index);
-		temp = temp->next;
-	}
-	printf("num %d| index %d|\n", temp->num, temp->index); */
 	ksort(&stack_a, &stack_b);
-/* 	temp = stack_a;
-	while (temp->next)
-	{
-		printf("num %d| index %d|\n", temp->num, temp->index);
-		temp = temp->next;
-	}
-	printf("num %d| index %d|\n", temp->num, temp->index); */
 	stack_del(&stack_a);
 	stack_del(&stack_b);
 	return (0);
@@ -70,7 +53,6 @@ int	count_args(char **splitted, int argc, char **argv)
 		real_args = real_args + ft_word_count(splitted[i], ' ');
 		++i;
 	}
-/* 	printf("real args : %d\n",real_args); */
 	return (real_args);
 }
 
@@ -85,41 +67,6 @@ int	blunt_args(int argc, char **argv)
 	return (args);
 }
 
-char	**split_the_split(char **splitted, int args, int bad_args)
-{
-	int		i;
-	int		j;
-	int		w;
-	char	**plus_splitted;
-	char	**temp_split;
-
-	i = 0;
-	j = 0;
-	plus_splitted = ft_calloc(sizeof(char *), args + 1);
-	while (i < bad_args)
-	{
-		if (ft_word_count(splitted[i], ' ') == 1)
-		{
-			plus_splitted[j] = ft_strdup(splitted[i]);
-			++j;
-		}
-		else
-		{
-			w = ft_word_count(splitted[i], ' ');
-			temp_split = ft_split(splitted[i], ' ');
-			while (w > 0)
-			{
-				plus_splitted[j + w - 1] = ft_strdup(temp_split[w - 1]);
-				--w;
-			}
-			j = j + w;
-		}
-		++i;
-	}
-	plus_splitted[args] = 0;
-	return (plus_splitted);
-}
-
 char	**parse_input_first(char **argv, int argc)
 {
 	char	**splitted;
@@ -127,13 +74,24 @@ char	**parse_input_first(char **argv, int argc)
 
 	if (argc == 2)
 	{
-		splitted = ft_split(argv[1], ' ');
-		return (splitted);
+		if (ft_word_count(argv[1], ' ') == 0)
+		{
+			ft_putstr_fd("Error\n", 1);
+			exit (1);
+		}
+		return (splitted = ft_split(argv[1], ' '), splitted);
 	}
 	splitted = ft_calloc(sizeof(char *), argc + 1);
-	i = 0;
-	while (argv[++i])
+	i = 1;
+	while (argv[i])
+	{
+		if (ft_strlen(argv[i]) == 0 || ft_word_count(argv[1], ' ') == 0)
+		{
+			ft_putstr_fd("Error\n", 1);
+			exit (1);
+		}
 		splitted[i - 1] = ft_strdup(argv[i]);
-	splitted[i - 1] = 0;
+		++i;
+	}
 	return (splitted);
 }

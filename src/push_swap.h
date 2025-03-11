@@ -6,7 +6,7 @@
 /*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:05:02 by carbon-m          #+#    #+#             */
-/*   Updated: 2025/03/08 19:30:28 by carbon-m         ###   ########.fr       */
+/*   Updated: 2025/03/11 12:58:14 by carbon-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ void	rrb(t_stack **stack_b);
 void	rrr(t_stack **stack_a, t_stack **stack_b);
 void	pa(t_stack **stack_a, t_stack **stack_b);
 void	pb(t_stack **stack_a, t_stack **stack_b);
-char	**parse_input(char **argv, int args);
+char	**parse_input(char **argv, int args, char **splitted);
 void	check_args(char **argv);
-int		*to_ints(char **splitted);
+int		*to_ints(char **splitted, int args);
 void	check_dups(int *parsed, int args);
 void	build_stacks(t_stack **stack_a, int *parsed, int args);
 void	fill_stack(t_stack *stack, int *parsed, int arg);
@@ -67,5 +67,7 @@ int		count_args(char **splitted, int argc, char **argv);
 char	**split_the_split(char **splitted, int args, int bad_args);
 int		blunt_args(int argc, char **argv);
 char	**parse_input_first(char **argv, int argc);
+char	**cleaned_split(char **splitted, char **plus_splitted, int bad_args,
+			int i);
 
 #endif

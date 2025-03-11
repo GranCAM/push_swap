@@ -3,36 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 14:39:05 by carbon-m          #+#    #+#             */
-/*   Updated: 2025/03/10 11:36:08 by carbon           ###   ########.fr       */
+/*   Updated: 2025/03/11 14:48:40 by carbon-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	**parse_input(char **argv, int argc)
+char	**parse_input(char **argv, int argc, char **splitted)
 {
-	char	**splitted;
 	char	**final_splitted;
-	int		i;
 	int		args;
 	int		bad_args;
 
-	if (argc == 2)
-	{
-		splitted = ft_split(argv[1], ' ');
-		return (splitted);
-	}
-	splitted = ft_calloc(sizeof(char *), argc + 1);
-	i = 0;
-	while (argv[++i])
-		splitted[i - 1] = ft_strdup(argv[i]);
-	splitted[i - 1] = 0;
 	args = count_args(splitted, argc, argv);
 	bad_args = blunt_args(argc, argv);
 	final_splitted = split_the_split(splitted, args, bad_args);
+	ft_freematrix_args(splitted, bad_args);
 	return (final_splitted);
 }
 
@@ -60,30 +49,28 @@ void	check_args(char **splitted)
 	}
 }
 
-int	*to_ints(char **splitted)
+int	*to_ints(char **splitted, int args)
 {
 	int		i;
-	int		j;
 	int		*parsed;
 	long	num;
 
+
+	parsed = ft_calloc(sizeof(int), args + 1);
 	i = 0;
-	while (splitted[i])
-		++i;
-	parsed = ft_calloc(sizeof(int), i + 1);
-	j = 0;
-	while (j < i)
+	while (i < args)
 	{
-		num = ft_atol(splitted[j]);
+		num = ft_atol(splitted[i]);
 		if (num > 2147483647 || num < -2147483648)
 		{
 			ft_putstr_fd("Error\n", 1);
 			exit (1);
 		}
-		parsed[j] = ft_atoi(splitted[j]);
-		++j;
+		parsed[i] = ft_atoi(splitted[i]);
+		++i;
 	}
-	parsed[j] = 0;
+	parsed[i] = 0;
+	ft_freematrix_args(splitted, args);
 	return (parsed);
 }
 

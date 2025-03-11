@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 11:11:54 by carbon            #+#    #+#             */
-/*   Updated: 2025/03/09 19:57:48 by carbon           ###   ########.fr       */
+/*   Updated: 2025/03/11 13:58:47 by carbon-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	build_stacks(t_stack **stack_a, int *parsed, int args)
 	}
 	ft_bubble_sort(parsed, args);
 	get_index(*stack_a, parsed);
+	free(parsed);
 }
 
 void	get_index(t_stack *stack_a, int *parsed)
