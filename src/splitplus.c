@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   splitplus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/10 12:21:47 by carbon-m          #+#    #+#             */
-/*   Updated: 2025/03/11 14:09:56 by carbon-m         ###   ########.fr       */
+/*   Updated: 2025/03/11 18:28:47 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 char	**split_the_split(char **splitted, int args, int bad_args)
 {
 	int		i;
-	int		j;
 	char	**final_splitted;
 
 	i = -1;
-	j = 0;
 	final_splitted = ft_calloc(sizeof(char *), args + 1);
 	final_splitted = cleaned_split(splitted, final_splitted, bad_args, i);
 	final_splitted[args] = 0;

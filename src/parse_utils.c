@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: carbon-m <carbon-m@student.42.fr>          +#+  +:+       +#+        */
+/*   By: carbon <carbon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 14:39:05 by carbon-m          #+#    #+#             */
-/*   Updated: 2025/03/11 14:48:40 by carbon-m         ###   ########.fr       */
+/*   Updated: 2025/03/11 21:25:12 by carbon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ int	*to_ints(char **splitted, int args)
 	int		i;
 	int		*parsed;
 	long	num;
-
 
 	parsed = ft_calloc(sizeof(int), args + 1);
 	i = 0;
